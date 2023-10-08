@@ -23,6 +23,10 @@ public class Hufflepuff extends Hogwarts {
     public int getHonesty() {
         return Honesty;
     }
+    @Override
+    protected int getSpecificAbilitiesSum() {
+        return Diligence + Loyalty + Honesty;
+    }
 
     @Override
     public String toString() {
@@ -33,6 +37,18 @@ public class Hufflepuff extends Hogwarts {
                 ", Loyalty=" + Loyalty +
                 ", Honesty=" + Honesty +
                 '.';
+    }
+
+    public void compareHufflepuffStudents(Hufflepuff hufflepuff) {
+        int abilitiesSum1 = getSpecificAbilitiesSum();
+        int abilitiesSum2 = hufflepuff.getSpecificAbilitiesSum();
+        if (abilitiesSum1 > abilitiesSum2) {
+            System.out.println(Name + " лучший пуффендуец, чем " + hufflepuff.getName());
+        } else if (abilitiesSum1 < abilitiesSum2) {
+            System.out.println(hufflepuff.getName() + " лучший пуффендуец, чем " + Name);
+        } else {
+            System.out.println("Ученики равны");
+        }
     }
 }
 

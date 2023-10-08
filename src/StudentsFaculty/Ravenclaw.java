@@ -23,6 +23,10 @@ public class Ravenclaw extends Hogwarts {
     public int getCreative() {
         return Creative;
     }
+    @Override
+    protected int getSpecificAbilitiesSum() {
+        return Intelligence + Wit + Creative;
+    }
 
     @Override
     public String toString() {
@@ -33,6 +37,18 @@ public class Ravenclaw extends Hogwarts {
                 ", Wit=" + Wit +
                 ", Creative=" + Creative +
                 '.';
+    }
+
+    public void compareRavencloStudents(Ravenclaw ravenclaw) {
+        int abilitiesSum1 = getSpecificAbilitiesSum();
+        int abilitiesSum2 = ravenclaw.getSpecificAbilitiesSum();
+        if (abilitiesSum1 > abilitiesSum2) {
+            System.out.println(Name + " лучший равенкловец, чем " + ravenclaw.getName());
+        } else if (abilitiesSum1 < abilitiesSum2) {
+            System.out.println(ravenclaw.getName() + " лучший равенкловец, чем " + Name);
+        } else {
+            System.out.println("Ученики равны");
+        }
     }
 }
 

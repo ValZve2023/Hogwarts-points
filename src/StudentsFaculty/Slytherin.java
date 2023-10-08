@@ -36,7 +36,10 @@ public class Slytherin extends Hogwarts {
     public int getLustForPower() {
         return LustForPower;
     }
-
+    @Override
+    protected int getSpecificAbilitiesSum() {
+        return Cunning + Determination + Ambition + Resourcefulness + LustForPower;
+    }
     @Override
     public String toString() {
         return "Slytherin student " + Name + ' ' + Surname +
@@ -48,5 +51,15 @@ public class Slytherin extends Hogwarts {
                 ", Resourcefulness=" + Resourcefulness +
                 ", LustForPower=" + LustForPower +
                 '.';
+    }
+
+    public void compareSlytherinStudents(Slytherin slytherin) {
+        int abilitiesSum1 = getSpecificAbilitiesSum();
+        int abilitiesSum2 = slytherin.getSpecificAbilitiesSum();
+        if (abilitiesSum1 > abilitiesSum2) {
+            System.out.println(Name + " лучший слизеренец, чем " + slytherin.getName());
+        } else if (abilitiesSum1 < abilitiesSum2) {
+            System.out.println(slytherin.getName() + " лучший слизеренец, чем " + Name);
+        }
     }
 }

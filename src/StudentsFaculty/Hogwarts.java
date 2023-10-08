@@ -29,6 +29,24 @@ public abstract class Hogwarts {
         return TransgressionDistance;
     }
 
+    protected abstract int getSpecificAbilitiesSum();
+
+    private int getInitialAbilitiesSum(){
+        return PowerOfMagic + TransgressionDistance;
+    }
+
+    public void compareInitialAbilities(Hogwarts hogwarts) {
+        int InitialAbilitiesSum1 = getInitialAbilitiesSum();
+        int InitialAbilitiesSum2 = hogwarts.getInitialAbilitiesSum();
+        if (InitialAbilitiesSum1 > InitialAbilitiesSum2) {
+            System.out.println(Name + " обладает бОльшей мощностью магии, чем " + hogwarts.getName());
+        } else if (InitialAbilitiesSum1 < InitialAbilitiesSum2) {
+            System.out.println(hogwarts.getName() + " обладает бОльшей мощностью магии, чем " + Name);
+        } else {
+            System.out.println("Ученики равны");
+        }
+    }
+
     @Override
     public String toString() {
         return "Hogwarts student " + Name +
